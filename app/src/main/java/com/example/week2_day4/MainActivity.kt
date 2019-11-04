@@ -2,6 +2,7 @@ package com.example.week2_day4
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -107,5 +108,17 @@ class MainActivity : AppCompatActivity() {
 //        editorSharedPreferences.putString(VALUE_KEY, number)
 
 //        editorSharedPreferences.commit()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            Toast.makeText(this, "Landscape", Toast.LENGTH_SHORT).show()
+        }
+
+        if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            Toast.makeText(this, "Portrait", Toast.LENGTH_SHORT).show()
+        }
     }
 }
